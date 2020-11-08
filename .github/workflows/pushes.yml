@@ -22,7 +22,7 @@ jobs:
         shell: bash
         env:
           EXAMPLE_KEY: ${{ secrets.EXAMPLE_KEY }}
-          GPG_SECRET: ${{ secret.GPG_SECRET }}
+          GPG_SECRET: ${{ secrets.GPG_SECRET }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
