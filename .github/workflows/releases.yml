@@ -13,3 +13,6 @@ jobs:
       - name: run shell script
         run: .ci/display-env.sh
         shell: bash
+        env:
+          EXAMPLE_KEY: ${{ secrets.EXAMPLE_KEY }}
+          GPG_SECRET: ${{ secret.GPG_SECRET }}

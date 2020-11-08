@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "Current directory: $(pwd)"
 echo "Home directory: ${HOME}"
 echo "---------------------------------"
