@@ -42,3 +42,6 @@ log_debug "Debug logging"
 
 uname=$(uname)
 log_info "uname=$uname"
+
+echo "Here comes the secret:"
+echo ${EXAMPLE_KEY}
