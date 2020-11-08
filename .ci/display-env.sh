@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-echo "Current directory:"
-pwd
+echo "Current directory: $(pwd)"
+echo "Home directory: ${HOME}"
 echo "---------------------------------"
 echo "Environment:"
 env
@@ -45,3 +45,24 @@ log_info "uname=$uname"
 
 echo "Here comes the secret:"
 echo ${EXAMPLE_KEY}
+
+#
+# see https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+#
+# encrypt with:
+#gpg --symmetric --cipher-algo AES256 my_secret.json
+#5XIqgkQKCMO6ToN5d1AYsHaxEiosqNgT
+
+echo "------------------------------"
+# --batch to prevent interactive command
+# --yes to assume "yes" for questions
+gpg --quiet --batch --yes --decrypt --passphrase="$GPG_SECRET" \
+    --output .ci/a-encrypted-file.txt .ci/a-encrypted-file.txt.gpg
+cat .ci/a-encrypted-file.txt
+
+echo "------------------------------------"
+echo "second way..."
+exec -a "echo" echo "$GPG_SECRET" | gpg --quiet --batch --yes --decrypt \
+    --passphrase-fd 0 \
+    --output .ci/a-encrypted-file2.txt .ci/a-encrypted-file.txt.gpg
+cat .ci/a-encrypted-file2.txt
