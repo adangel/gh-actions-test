@@ -20,6 +20,8 @@ jobs:
       - name: run shell script
         run: .ci/display-env.sh
         shell: bash
+        env:
+          EXAMPLE_KEY: ${{ secrets.EXAMPLE_KEY }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
