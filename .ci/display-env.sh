@@ -38,3 +38,7 @@ log_error "Error logging color test"
 log_info "Info logging color test"
 log_success "Success logging color test"
 log_debug "Debug logging"
+
+
+uname=$(uname)
+log_info "uname=$uname"
