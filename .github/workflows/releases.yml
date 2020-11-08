@@ -1,0 +1,15 @@
+name: Release Builds
+on:
+  push:
+    tags:
+      - 'releases/*'
+      - 'v*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - uses: actions/checkout@v2
+      - name: run shell script
+        run: .ci/display-env.sh
+        shell: bash
