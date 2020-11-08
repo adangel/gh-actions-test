@@ -64,7 +64,7 @@ cat .ci/a-encrypted-file.txt
 
 echo "------------------------------------"
 echo "second way..."
-exec -a "echo" echo "$GPG_SECRET" | gpg --batch --yes --decrypt \
+printenv GPG_SECRET | gpg --batch --yes --decrypt \
     --passphrase-fd 0 \
     --output .ci/a-encrypted-file2.txt .ci/a-encrypted-file.txt.gpg
 cat .ci/a-encrypted-file2.txt
