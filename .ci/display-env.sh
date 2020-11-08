@@ -56,13 +56,15 @@ echo ${EXAMPLE_KEY}
 echo "------------------------------"
 # --batch to prevent interactive command
 # --yes to assume "yes" for questions
-gpg --quiet --batch --yes --decrypt --passphrase="$GPG_SECRET" \
+gpg --batch --yes --decrypt --passphrase="$GPG_SECRET" \
     --output .ci/a-encrypted-file.txt .ci/a-encrypted-file.txt.gpg
 cat .ci/a-encrypted-file.txt
 
 echo "------------------------------------"
 echo "second way..."
-exec -a "echo" echo "$GPG_SECRET" | gpg --quiet --batch --yes --decrypt \
+exec -a "echo" echo "$GPG_SECRET" | gpg --batch --yes --decrypt \
     --passphrase-fd 0 \
     --output .ci/a-encrypted-file2.txt .ci/a-encrypted-file.txt.gpg
 cat .ci/a-encrypted-file2.txt
+
+ls -la .ci
