@@ -61,6 +61,7 @@ jobs:
           name: binary-artifact
           path: target/artifact-bin.zip
           if-no-files-found: error
+          retention-days: 5
   tester:
     needs: build
     runs-on: ubuntu-latest
