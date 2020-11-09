@@ -27,8 +27,11 @@ gem install bundler
 echo "Bundler:"
 bundle --version
 which bundle
-echo "zip:"
-zip --help
+
+if [ $(uname) == "Linux" ]; then
+    echo "zip:"
+    zip --help
+fi
 
 
 echo "-----------------------------------"
