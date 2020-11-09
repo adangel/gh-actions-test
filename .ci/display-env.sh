@@ -16,10 +16,10 @@ gpg --version
 echo "ruby:"
 ruby --version
 which ruby
-echo "rvm:"
-rvm --version
-rvm list
-rvm use ruby-2.7
+#echo "rvm:"
+#rvm --version
+#rvm list
+#rvm use ruby-2.7
 echo "gem:"
 gem --version
 which gem
