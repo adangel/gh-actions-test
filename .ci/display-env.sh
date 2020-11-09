@@ -13,6 +13,20 @@ echo "openssl:"
 openssl version
 echo "gpg:"
 gpg --version
+echo "ruby:"
+ruby --version
+which ruby
+echo "Bundler:"
+bundle --version
+which bundle
+echo "rvm:"
+rvm --version
+rvm list
+echo "zip:"
+zip --help
+
+
+echo "-----------------------------------"
 
 
 COL_GREEN="\e[32m"

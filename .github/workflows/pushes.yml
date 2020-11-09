@@ -47,3 +47,25 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+      - name: Create build artifact
+        run: .ci/build.sh
+        shell: bash
+      - name: Upload only from linux
+        uses: actions/upload-artifact@v2
+        if: ${{ runner.os ==  'Linux' }}
+        with:
+          name: binary-artifact
+          path: target/artifact-bin.zip
+          if-no-files-found: error
+  tester:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: binary-artifact
+          path: target
+      - name: Run Tester
+        run: .ci/tester.sh
+        shell: bash
