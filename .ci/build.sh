@@ -9,4 +9,6 @@ Test
 Test
 EOF
 
-zip artifact-bin.zip sample-file.txt
+if [ -x "$(command -v zip)" ]; then
+    zip artifact-bin.zip sample-file.txt
+fi
