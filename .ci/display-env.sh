@@ -16,12 +16,17 @@ gpg --version
 echo "ruby:"
 ruby --version
 which ruby
-echo "Bundler:"
-bundle --version
-which bundle
 echo "rvm:"
 rvm --version
 rvm list
+rvm use ruby-2.7
+echo "gem:"
+gem --version
+which gem
+gem install bundler
+echo "Bundler:"
+bundle --version
+which bundle
 echo "zip:"
 zip --help
 
