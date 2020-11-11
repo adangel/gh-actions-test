@@ -62,7 +62,7 @@ case "$OPENJDK_ARCHIVE" in
         log_error "Unknown filetype: ${OPENJDK_ARCHIVE}"
         exit 1
         ;;
-fi
+esac
 
 cat > ${HOME}/java.env <<EOF
 export JAVA_HOME="${TARGET_DIR}"
