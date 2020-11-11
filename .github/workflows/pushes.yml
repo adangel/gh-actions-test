@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
+      - name: install openjdk
+        run: .ci/install-openjdk.sh
+        shell: bash
       - name: run shell script
         run: .ci/display-env.sh
         shell: bash
