@@ -31,9 +31,10 @@ esac
 JDK_VERSION=11
 DOWNLOAD_URL=$(curl --silent -X GET "https://api.adoptopenjdk.net/v3/assets/feature_releases/${JDK_VERSION}/ga?architecture=x64&heap_size=normal&image_type=jdk&jvm_impl=hotspot&os=${JDK_OS}&page=0&page_size=1&project=jdk&sort_method=DEFAULT&sort_order=DESC&vendor=adoptopenjdk" \
     -H "accept: application/json" \
-    | jq ".[0].binaries[0].package.link")
+    | jq -r ".[0].binaries[0].package.link")
 
 OPENJDK_ARCHIVE=$(basename ${DOWNLOAD_URL})
+log_debug "Archive name: ${OPENJDK_ARCHIVE}"
 
 CACHE_DIR=${HOME}/.cache/openjdk
 TARGET_DIR=${HOME}/openjdk${OPENJDK_VERSION}
