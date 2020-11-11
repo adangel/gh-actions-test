@@ -7,7 +7,7 @@
 
 source $(dirname $0)/logger.inc
 
-#set -e
+set -e
 
 case "$(uname)" in
     Linux*)
