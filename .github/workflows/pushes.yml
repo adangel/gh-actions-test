@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: install openjdk
         run: .ci/install-openjdk.sh
         shell: bash
