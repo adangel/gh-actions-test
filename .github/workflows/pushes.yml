@@ -25,8 +25,8 @@ jobs:
       - name: install openjdk
         run: .ci/install-openjdk.sh
         shell: bash
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+#      - name: Setup tmate session
+#        uses: mxschmitt/action-tmate@v3
       - name: run shell script
         run: .ci/display-env.sh
         shell: bash
