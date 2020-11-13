@@ -14,12 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: run shell script
-        run: .ci/display-env.sh
-        shell: bash
-        env:
-          EXAMPLE_KEY: ${{ secrets.EXAMPLE_KEY }}
-          GPG_SECRET: ${{ secrets.GPG_SECRET }}
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -47,3 +41,9 @@ jobs:
       - name: Dump env
         run: env
         shell: bash
+      - name: run shell script
+        run: .ci/display-env.sh
+        shell: bash
+        env:
+          EXAMPLE_KEY: ${{ secrets.EXAMPLE_KEY }}
+          GPG_SECRET: ${{ secrets.GPG_SECRET }}
