@@ -7,7 +7,7 @@
 
 source $(dirname $0)/logger.inc
 
-#set -e
+set -e
 
 case "$(uname)" in
     Linux*)
@@ -28,8 +28,8 @@ case "$(uname)" in
 esac
 
 
-JDK_VERSION=11
-DOWNLOAD_URL=$(curl --silent -X GET "https://api.adoptopenjdk.net/v3/assets/feature_releases/${JDK_VERSION}/ga?architecture=x64&heap_size=normal&image_type=jdk&jvm_impl=hotspot&os=${JDK_OS}&page=0&page_size=1&project=jdk&sort_method=DEFAULT&sort_order=DESC&vendor=adoptopenjdk" \
+OPENJDK_VERSION=11
+DOWNLOAD_URL=$(curl --silent -X GET "https://api.adoptopenjdk.net/v3/assets/feature_releases/${OPENJDK_VERSION}/ga?architecture=x64&heap_size=normal&image_type=jdk&jvm_impl=hotspot&os=${JDK_OS}&page=0&page_size=1&project=jdk&sort_method=DEFAULT&sort_order=DESC&vendor=adoptopenjdk" \
     -H "accept: application/json" \
     | jq -r ".[0].binaries[0].package.link")
 
