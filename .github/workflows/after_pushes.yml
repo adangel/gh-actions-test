@@ -31,10 +31,11 @@ jobs:
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
-      - name: Dump jobs context
-        env:
-          JOBS_CONTEXT: ${{ toJson(jobs) }}
-        run: echo "$JOBS_CONTEXT"
+      # The jobs context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow
+      #- name: Dump jobs context
+      #  env:
+      #    JOBS_CONTEXT: ${{ toJson(jobs) }}
+      #  run: echo "$JOBS_CONTEXT"
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
