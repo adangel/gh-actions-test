@@ -1,6 +1,10 @@
-name: Pushes
+name: After Pushes
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Pushes
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
